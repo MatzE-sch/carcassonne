@@ -17,7 +17,7 @@ export function DraggableToken({ id, size, team, scrollX, scrollY }) {
 
     return (
         <Token ref={ setNodeRef } style={ style } 
-            {...attributes} {...listeners}
+            {...attributes} {...listeners} tabIndex="0" // tabindex to be focusabble to be used with keyboard thruogh dnd-kit
             size={ size } team={ team } />
     )
 }

@@ -4,7 +4,7 @@ import { GiClick } from "react-icons/gi";
 import { Tile, DraggableTile } from "./Tile";
 import TileDropSpace from "./TileDropSpace";
 import { DraggableToken } from "./Token";
-import { DndContext, PointerSensor, useSensors, useSensor, rectIntersection, closestCenter, pointerWithin, closestCorners } from '@dnd-kit/core';
+import { DndContext, PointerSensor, KeyboardSensor, useSensors, useSensor, rectIntersection, closestCenter, pointerWithin, closestCorners } from '@dnd-kit/core';
 import { BOTTOM, LEFT, RIGHT, TOP } from "./models/side";
 import { FARM } from "./models/structure";
 import { BOTTOMA, BOTTOMB, LEFTA, LEFTB, RIGHTA, RIGHTB, TOPA, TOPB } from "./models/farmside";
@@ -123,7 +123,8 @@ export const Game = forwardRef((props, ref) => {
             activationConstraint: {
                 distance: 8,
             },
-        })
+        }),
+        useSensor(KeyboardSensor)
     )
 
     const handleDragEnd = useCallback((e) => {
